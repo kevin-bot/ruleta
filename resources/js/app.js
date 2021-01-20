@@ -19,7 +19,11 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('jugador-crear-component', require('./components/jugador/createComponent.vue').default);
+Vue.component('jugador-editar-component', require('./components/jugador/editarComponent.vue').default);
+Vue.component('main-component', require('./components/jugador/mainComponent.vue').default);
+
+Vue.component('ruleta-component', require('./components/ruleta/mainruletaComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

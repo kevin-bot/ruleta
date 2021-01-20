@@ -40,4 +40,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Relacion con tabla jugadors
+     */
+    public function jugador() {
+        return $this->belongsTo('App\Models\Jugador');
+    }
 }
