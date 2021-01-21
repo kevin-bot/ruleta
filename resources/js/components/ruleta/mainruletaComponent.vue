@@ -4,7 +4,7 @@
                 <div class="col-12 col-sm-10 col-lg-10 mx-auto mb-4">
                     <h2 class="mt-3">My Ruleta</h2>
                     <br>                    
-                    <h3>Usuario: {{nombreJugador}}, Saldo: {{dinero}}</h3>
+                    <h3>Usuario: {{nombreJugador}}, Saldo: $ {{dinero}}</h3>
                     <hr>                                        
                     <div class="form-group" v-if="allin">
                         <label for="porcentaje">Selecciones un porcentaje de dinero que quiera aportar: </label>                    
@@ -43,7 +43,7 @@
                         <div>
                             <h2>Resultado : {{colorGanador}}</h2>
                             <h1>¡{{resultado}}!</h1>
-                            <h3>Dinero ganado {{valorGanado}}</h3>
+                            <h3>Dinero ganado $ {{valorGanado}}</h3>
                         </div>                        
                     
                     </div>    
@@ -136,13 +136,22 @@ export default {
                     this.dinero = this.dinero - this.valorApuesta;
                     this.valorApuesta = 0;
                     this.porcentajeapuesta = 0;
-                    this.color = "";
-                    this.colorGanador = "";
+                    this.color = "";                    
                     this.ronda();    
                 }
+                this.guardarDineroGanado();
             }else {
                 alert('No tienes dinero apostado')
             }
+        },
+        guardarDineroGanado(){
+            let jugador = {
+                "dinero" : this.dinero
+            };
+
+            axios.patch(`/jugadorUdinero/${this.user.id}`, jugador).then((response)=>{
+                console.log(response)
+            });
         }
     },
     computed: {

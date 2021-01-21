@@ -108,4 +108,14 @@ class JugadorController extends Controller
             "result"=>"exito"
         ]);
     }
+
+    public function updateDinero(Jugador $jugador){
+        $jugador->dinero = request()->dinero;
+        $jugador->save();
+
+        return response()->json([
+            "result"=>"exito"
+        ]);
+    }
+
 }

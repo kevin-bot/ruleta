@@ -8,7 +8,7 @@
                     <h1 class="display-4">Editar Jugador</h1>
                     <hr>                          
                         <div class="form-group">
-                            <label for="docuemnto">Documento:*</label>
+                            <label for="docuemnto"><i class="fas fa-address-card"></i> Documento:*</label>
                             <input 
                                 class="form-control bg-light shadow-sm" 
                                 type="text" 
@@ -19,7 +19,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="nombre">Nombres:*</label>
+                            <label for="nombre"><i class="fas fa-user"></i> Nombres:*</label>
                             <input 
                                 class="form-control bg-light shadow-sm" 
                                 type="text" 
@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="apellido">Apellidos:*</label>
+                            <label for="apellido"><i class="fas fa-user"></i> Apellidos:*</label>
                             <input 
                                 class="form-control bg-light shadow-sm" 
                                 type="text" 
@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono:*</label>
+                            <label for="telefono"><i class="fas fa-phone"></i> Teléfono:*</label>
                             <input 
                                 class="form-control bg-light shadow-sm" 
                                 type="text" 
@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="direcion">Direción:*</label>
+                            <label for="direcion"><i class="fas fa-map-marker-alt"></i> Direción:*</label>
                             <input 
                                 class="form-control bg-light shadow-sm" 
                                 type="text" 
@@ -63,7 +63,7 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="dinero">Dinero:*</label>
+                            <label for="dinero"><i class="fas fa-money-bill-alt"></i> Dinero:*</label>
                             <input 
                                 class="form-control bg-light shadow-sm" 
                                 type="text" 
@@ -73,7 +73,7 @@
                                 placeholder="Escriba el monto de dinero del jugador..">
                         </div>
                                 
-                        <button class="btn btn-primary btn-block" type="submit">Editar</button>
+                        <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-edit"></i> Editar</button>
                         <button class="btn btn-link btn-block" href="" @click="cerrar">Cancelar</button>
             
                 </form>

@@ -2363,12 +2363,21 @@ var userAuth = document.head.querySelector('meta[name="user"]'); // captura el u
           this.valorApuesta = 0;
           this.porcentajeapuesta = 0;
           this.color = "";
-          this.colorGanador = "";
           this.ronda();
         }
+
+        this.guardarDineroGanado();
       } else {
         alert('No tienes dinero apostado');
       }
+    },
+    guardarDineroGanado: function guardarDineroGanado() {
+      var jugador = {
+        "dinero": this.dinero
+      };
+      axios.patch("/jugadorUdinero/".concat(this.user.id), jugador).then(function (response) {
+        console.log(response);
+      });
     }
   },
   computed: {
@@ -53388,9 +53397,7 @@ var render = function() {
             _c("hr"),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "docuemnto" } }, [
-                _vm._v("Documento:*")
-              ]),
+              _vm._m(0),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -53421,7 +53428,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "nombre" } }, [_vm._v("Nombres:*")]),
+              _vm._m(1),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -53452,9 +53459,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "apellido" } }, [
-                _vm._v("Apellidos:*")
-              ]),
+              _vm._m(2),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -53485,9 +53490,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "telefono" } }, [
-                _vm._v("Teléfono:*")
-              ]),
+              _vm._m(3),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -53518,9 +53521,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "direcion" } }, [
-                _vm._v("Direción:*")
-              ]),
+              _vm._m(4),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -53551,9 +53552,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "email" } }, [
-                _vm._v("Correo Eléctonico:*")
-              ]),
+              _vm._m(5),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -53583,14 +53582,7 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary btn-block",
-                attrs: { type: "submit" }
-              },
-              [_vm._v("Guardar")]
-            ),
+            _vm._m(6),
             _vm._v(" "),
             _c(
               "button",
@@ -53607,7 +53599,72 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "docuemnto" } }, [
+      _c("i", { staticClass: "fas fa-address-card" }),
+      _vm._v(" Documento:*")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "nombre" } }, [
+      _c("i", { staticClass: "fas fa-user" }),
+      _vm._v(" Nombres:*")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "apellido" } }, [
+      _c("i", { staticClass: "fas fa-user" }),
+      _vm._v(" Apellidos:*")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "telefono" } }, [
+      _c("i", { staticClass: "fas fa-phone" }),
+      _vm._v(" Teléfono:*")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "direcion" } }, [
+      _c("i", { staticClass: "fas fa-map-marker-alt" }),
+      _vm._v(" Direción:*")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "email" } }, [
+      _c("i", { staticClass: "fas fa-envelope" }),
+      _vm._v(" Correo Eléctonico:*")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
+      [_c("i", { staticClass: "fas fa-save" }), _vm._v(" Guardar")]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -53651,9 +53708,7 @@ var render = function() {
             _c("hr"),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "docuemnto" } }, [
-                _vm._v("Documento:*")
-              ]),
+              _vm._m(0),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -53683,7 +53738,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "nombre" } }, [_vm._v("Nombres:*")]),
+              _vm._m(1),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -53713,9 +53768,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "apellido" } }, [
-                _vm._v("Apellidos:*")
-              ]),
+              _vm._m(2),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -53745,9 +53798,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "telefono" } }, [
-                _vm._v("Teléfono:*")
-              ]),
+              _vm._m(3),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -53777,9 +53828,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "direcion" } }, [
-                _vm._v("Direción:*")
-              ]),
+              _vm._m(4),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -53809,7 +53858,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "dinero" } }, [_vm._v("Dinero:*")]),
+              _vm._m(5),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -53838,14 +53887,7 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary btn-block",
-                attrs: { type: "submit" }
-              },
-              [_vm._v("Editar")]
-            ),
+            _vm._m(6),
             _vm._v(" "),
             _c(
               "button",
@@ -53862,7 +53904,72 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "docuemnto" } }, [
+      _c("i", { staticClass: "fas fa-address-card" }),
+      _vm._v(" Documento:*")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "nombre" } }, [
+      _c("i", { staticClass: "fas fa-user" }),
+      _vm._v(" Nombres:*")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "apellido" } }, [
+      _c("i", { staticClass: "fas fa-user" }),
+      _vm._v(" Apellidos:*")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "telefono" } }, [
+      _c("i", { staticClass: "fas fa-phone" }),
+      _vm._v(" Teléfono:*")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "direcion" } }, [
+      _c("i", { staticClass: "fas fa-map-marker-alt" }),
+      _vm._v(" Direción:*")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "dinero" } }, [
+      _c("i", { staticClass: "fas fa-money-bill-alt" }),
+      _vm._v(" Dinero:*")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
+      [_c("i", { staticClass: "fas fa-edit" }), _vm._v(" Editar")]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -54038,7 +54145,7 @@ var render = function() {
           _vm._v(
             "Usuario: " +
               _vm._s(_vm.nombreJugador) +
-              ", Saldo: " +
+              ", Saldo: $ " +
               _vm._s(_vm.dinero)
           )
         ]),
@@ -54186,7 +54293,7 @@ var render = function() {
             _vm._v(" "),
             _c("h1", [_vm._v("¡" + _vm._s(_vm.resultado) + "!")]),
             _vm._v(" "),
-            _c("h3", [_vm._v("Dinero ganado " + _vm._s(_vm.valorGanado))])
+            _c("h3", [_vm._v("Dinero ganado $ " + _vm._s(_vm.valorGanado))])
           ])
         ])
       ])

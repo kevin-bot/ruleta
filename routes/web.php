@@ -25,6 +25,7 @@ Route::get('/jugadores', function () {
     return view('jugadores');
 })->name('jugadores');
 
+Route::patch('/jugadorUdinero/{jugador}', [JugadorController::class,'updateDinero']);
 Route::apiResource('jugador',JugadorController::class);
 Auth::routes();
 
